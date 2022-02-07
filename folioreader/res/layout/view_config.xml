@@ -5,7 +5,8 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="203dp"
-    tools:layout_gravity="bottom">
+    tools:layout_gravity="bottom"
+    android:background="@drawable/round_config">
 
     <ImageButton
         android:id="@+id/view_config_ib_day_mode"

@@ -25,6 +25,7 @@ import android.app.Dialog
 import android.content.*
 import android.content.pm.PackageManager
 import android.content.res.Resources
+import android.graphics.Color
 import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
@@ -70,6 +71,7 @@ import com.folioreader.util.FileUtil
 import com.folioreader.util.UiUtil
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.folio_activity.*
 import kotlinx.android.synthetic.main.view_config.*
 import org.greenrobot.eventbus.EventBus
 import org.readium.r2.shared.Link
@@ -449,20 +451,12 @@ class FolioActivity : AppCompatActivity(), FolioActivityCallback, MediaControlle
 
         val res: Resources? = resources
         if (res != null) {
-            UiUtil.setColorIntToDrawable(config.themeColor, res.getDrawable(R.drawable.ic_home))
-            UiUtil.setColorIntToDrawable(
-                config.themeColor,
-                res.getDrawable(R.drawable.table_of_contents)
-            )
-            UiUtil.setColorIntToDrawable(
-                config.themeColor,
-                res.getDrawable(R.drawable.ic_baseline_bookmark_border_24)
-            )
-            UiUtil.setColorIntToDrawable(
-                config.themeColor,
-                res.getDrawable(R.drawable.icon_moon_normal)
-            )
-            UiUtil.setColorIntToDrawable(config.themeColor, res.getDrawable(R.drawable.ic_settings))
+            UiUtil.setColorIntToDrawable(Color.WHITE , res.getDrawable(R.drawable.round_toolbar))
+            UiUtil.setColorIntToDrawable(Color.BLACK, res.getDrawable(R.drawable.ic_home))
+            UiUtil.setColorIntToDrawable(Color.BLACK, res.getDrawable(R.drawable.table_of_contents))
+            UiUtil.setColorIntToDrawable(Color.BLACK, res.getDrawable(R.drawable.ic_baseline_bookmark_border_24))
+            UiUtil.setColorIntToDrawable(Color.BLACK, res.getDrawable(R.drawable.icon_moon_normal))
+            UiUtil.setColorIntToDrawable(Color.BLACK, res.getDrawable(R.drawable.ic_settings))
         }
 
 
@@ -491,26 +485,12 @@ class FolioActivity : AppCompatActivity(), FolioActivityCallback, MediaControlle
 
         var res: Resources? = resources
         if (res != null) {
-            UiUtil.setColorIntToDrawable(
-                config.nightThemeColor,
-                res.getDrawable(R.drawable.ic_home)
-            )
-            UiUtil.setColorIntToDrawable(
-                config.nightThemeColor,
-                res.getDrawable(R.drawable.table_of_contents)
-            )
-            UiUtil.setColorIntToDrawable(
-                config.nightThemeColor,
-                res.getDrawable(R.drawable.ic_baseline_bookmark_border_24)
-            )
-            UiUtil.setColorIntToDrawable(
-                config.nightThemeColor,
-                res.getDrawable(R.drawable.icon_moon_normal)
-            )
-            UiUtil.setColorIntToDrawable(
-                config.nightThemeColor,
-                res.getDrawable(R.drawable.ic_settings)
-            )
+            UiUtil.setColorIntToDrawable(Color.BLACK , res.getDrawable(R.drawable.round_toolbar))
+            UiUtil.setColorIntToDrawable(Color.WHITE, res.getDrawable(R.drawable.ic_home))
+            UiUtil.setColorIntToDrawable(Color.WHITE, res.getDrawable(R.drawable.table_of_contents))
+            UiUtil.setColorIntToDrawable(Color.WHITE, res.getDrawable(R.drawable.ic_baseline_bookmark_border_24))
+            UiUtil.setColorIntToDrawable(Color.WHITE, res.getDrawable(R.drawable.ic_night))
+            UiUtil.setColorIntToDrawable(Color.WHITE, res.getDrawable(R.drawable.ic_settings))
         }
 
         // Update toolbar colors
@@ -874,11 +854,15 @@ class FolioActivity : AppCompatActivity(), FolioActivityCallback, MediaControlle
         distractionFreeMode = visibility != View.SYSTEM_UI_FLAG_VISIBLE
         Log.v(LOG_TAG, "-> distractionFreeMode = $distractionFreeMode")
 
-        if (actionBar != null) {
+        var bottomNavigationView: BottomNavigationView? = findViewById(R.id.bottomNavigationView)
+
+        if (actionBar != null && bottomNavigationView != null) {
             if (distractionFreeMode) {
                 actionBar!!.hide()
+                bottomNavigationView.visibility=View.GONE
             } else {
                 actionBar!!.show()
+                bottomNavigationView.visibility=View.VISIBLE
             }
         }
     }

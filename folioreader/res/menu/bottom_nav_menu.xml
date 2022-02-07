@@ -6,30 +6,30 @@
         android:id="@+id/Home"
         android:title="Home"
         android:icon="@drawable/ic_home"
-        app:showAsAction="ifRoom"
-        tools:showAsAction="always"/>
+        android:iconTint="@color/default_theme_accent_color"
+        />
     <item
         android:id="@+id/TableOfContent"
         android:title="Table of Contents"
         android:icon="@drawable/table_of_contents"
-        app:showAsAction="ifRoom"
-        tools:showAsAction="always"/>
+        android:iconTint="@color/default_theme_accent_color"
+        />
     <item
         android:id="@+id/DayNight"
         android:title="Day/Night"
-        android:icon="@drawable/icon_moon_normal"
-        app:showAsAction="ifRoom"
-        tools:showAsAction="always"/>
+        android:icon="@drawable/ic_night"
+        android:iconTint="@color/default_theme_accent_color"
+        />
     <item
         android:id="@+id/Bookmark"
         android:title="Bookmark"
         android:icon="@drawable/ic_baseline_bookmark_border_24"
-        app:showAsAction="ifRoom"
-        tools:showAsAction="always"/>
+        android:iconTint="@color/default_theme_accent_color"
+        />
     <item
         android:id="@+id/Settings"
         android:title="Settings"
         android:icon="@drawable/ic_settings"
-        app:showAsAction="ifRoom"
-        tools:showAsAction="always" />
+        android:iconTint="@color/default_theme_accent_color"
+        />
 </menu>
